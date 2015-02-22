@@ -8,22 +8,22 @@ class CreateStudents < ActiveRecord::Migration
       t.timestamps
     end
 
-    reversible do |dir|
-      dir.up do
-        execute <<-SQL  
-        ALTER TABLE students
-        ADD CONSTRAINT fk_students_houses
-        FOREIGN KEY (house_id)
-        REFERENCES houses(id)
-        SQL
-      end
-      dir.down do
-        execute <<-SQL
-          ALTER TABLE students
-            DROP FOREIGN KEY fk_students_houses
-        SQL
-      end
-    end
+    # reversible do |dir|
+    #   dir.up do
+    #     execute <<-SQL  
+    #     ALTER TABLE students
+    #     ADD CONSTRAINT fk_students_houses
+    #     FOREIGN KEY (house_id)
+    #     REFERENCES houses(id)
+    #     SQL
+    #   end
+    #   dir.down do
+    #     execute <<-SQL
+    #       ALTER TABLE students
+    #         DROP FOREIGN KEY fk_students_houses
+    #     SQL
+    #   end
+    # end
 
   end
 end
